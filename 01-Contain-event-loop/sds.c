@@ -264,6 +264,7 @@ void sdsIncrLen(sds s, int incr) {
 
 	// 这个 assert 其实可以忽略
 	// 因为前一个 assert 已经确保 sh->free - incr >= 0 了
+	// 这个是为了保证当incr为负数时不会使sh->free为负数
 	assert(sh->free >= 0);
 
 	// 放置新的结尾符号
